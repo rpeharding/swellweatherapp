@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="generic.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="entry.js"></script>
+    <script type="module" src="Icons.js"></script>
+    <title>Swell Weather</title>
+  </head>
+  <body>
+    <header class="header">
+      <h2>swell weather</h2>
+    </header>
+
+    <div id="root" class="container">
+      <div class="today-container">
+        <div id="place" class="place"></div>
+        <div id="today" class="today"></div>
+        <div id="today-hourly" class="today-hourly">
+          <h3>Next 24h</h3>
+          <div id="today-hourly-forecast" class="today-hourly-forecast"></div>
+        </div>
+      </div>
+      <div id="next5Days" class="multi-day-surf">
+        multiple day stuff and surf
+      </div>
+    </div>
+  </body>
+</html>
