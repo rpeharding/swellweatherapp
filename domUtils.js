@@ -1,33 +1,16 @@
-import {
-  compareAsc,
-  format,
-  add,
-  parse,
-  isBefore,
-  startOfDay,
-  endOfMonth,
-  startOfMonth,
-  sub,
-  differenceInDays,
-  differenceInYears,
-  isSameMonth,
-  isThisMonth,
-  endOfDecade,
-  isValid,
-  formatDistance,
-  lastDayOfDecade,
-} from "https://cdn.skypack.dev/date-fns";
-import formatDistanceToNowStrict from "https://cdn.skypack.dev/date-fns/formatDistanceToNowStrict";
-
-import { zhCN } from "https://cdn.skypack.dev/date-fns/locale";
-
-// export function GetHoursandMins(time) {
-//   const hours = time.getHours();
-//   const minutes = time.getMinutes();
-//   return `${hours}:${minutes}`;
-// }
-
+// date conversions
 export function GetHoursandMins(time) {
-  const formattedDate = format(time, "HH:mm");
+  const formattedDate = dateFns.format(time, "HH:mm");
   return `${formattedDate}`;
 }
+
+//
+export function GetDay(d) {
+  const formattedDate = dateFns.format(d, "EEEE");
+  return `${formattedDate}`;
+}
+
+// export function GetDayTime(t) {
+//   const hours = new Date().getHours
+//   return `${formattedDate}`;
+// }

@@ -12,8 +12,10 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module">
+      import * as dateFns from "https://cdn.jsdelivr.net/npm/date-fns/+esm";
+    </script>
     <script type="module" src="entry.js"></script>
-    <script type="module" src="Icons.js"></script>
     <title>Swell Weather</title>
   </head>
   <body>
@@ -24,14 +26,27 @@
     <div id="root" class="container">
       <div class="today-container">
         <div id="place" class="place"></div>
-        <div id="today" class="today"></div>
+
+        <div id="today" class="today">
+          <div class="flex-container">
+            <div class="today-overview"></div>
+            <div class="today-info">
+              <div class="info-card"></div>
+              <div class="info-card"></div>
+              <div class="info-card"></div>
+            </div>
+          </div>
+        </div>
+
         <div id="today-hourly" class="today-hourly">
           <h3>Next 24h</h3>
           <div id="today-hourly-forecast" class="today-hourly-forecast"></div>
         </div>
       </div>
-      <div id="next5Days" class="multi-day-surf">
-        multiple day stuff and surf
+
+      <div id="next5Days" class="multi-day">
+        <h4>Next 4 days</h4>
+        <div class="day"></div>
       </div>
     </div>
   </body>
