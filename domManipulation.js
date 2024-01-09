@@ -1,5 +1,7 @@
 // import { format } from "https://unpkg.com/date-fns/format.mjs";
-import { format } from "./node_modules/date-fns/format.mjs";
+// import { format } from "./node_modules/date-fns/format.mjs";
+// import { format } from "dateFns";
+import { getDayName, timetoHoursMins } from "./dateUtils.js";
 
 const placeRef = document.querySelector(".place-name");
 const placeIconRef = document.querySelector(".snapshot-icon");
@@ -58,9 +60,10 @@ export function createDailyForecast(forecastday) {
   dayContainerRef.innerHTML = "";
   forecastday.map((item, index) => {
     //get day
-    const day = item.date;
-    const dayText = format(day, "EEEE");
-    const abbrevdayText = dayText.substring(0, 3);
+    const date = item.date;
+
+    const dayText = getDayName(date);
+
     // get decription
     const dailyDescription = item.day.condition.text;
     // getIcon
@@ -84,7 +87,7 @@ export function createDailyForecast(forecastday) {
     dayContainerRef.innerHTML += `
     <div id="${index}" class="day-panel">
     <div id="${index}"class="weather-summary">
-      <h3 id="${index}"class="day-text">${abbrevdayText}</h3>
+      <h3 id="${index}"class="day-text">${dayText}</h3>
       <p id="${index}"class="description">${dailyDescription}</p>
       <div>
       ${iconHTML}
@@ -126,7 +129,7 @@ function setHourlyWeather(weekday, index) {
   let html = "";
   //use index of each panel from foreach to link to correct data from forecast array
   weekday.hour.forEach((item) => {
-    const dayHour = format(item.time, "HH:mm");
+    const dayHour = timetoHoursMins(item.time);
     const hourlyTemp = Math.floor(item.temp_c);
     const hourlyIconURL = item.condition.icon;
     const hourlyIcon = hourlyIconURL.substring(hourlyIconURL.length - 7);
