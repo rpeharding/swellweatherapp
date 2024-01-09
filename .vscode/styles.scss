@@ -1,0 +1,250 @@
+$primary-text: #ffffff;
+$lightest-col: #9bced7;
+$lightest-btn-hover: hsl(189, 43%, 80%);
+$darkest-col: #0f1070;
+$darkest-btn-hover: hsl(239, 83%, 35%);
+$midtone-col: #3b519d;
+$link: #b1b6ff;
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+  color: $primary-text;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+body {
+  font-family: "Rethink Sans", sans-serif;
+  color: $primary-text;
+  padding: 0px 3em;
+  background: linear-gradient(
+    239deg,
+    rgba(18, 69, 135, 1) 0%,
+    rgba(59, 81, 157, 1) 38%,
+    rgba(15, 16, 112, 1) 89%
+  );
+  background-attachment: fixed;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  & :last-child {
+    align-self: baseline;
+  }
+}
+
+.flex-column-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  border-radius: 30px;
+}
+
+.btn:hover,
+.btn:focus-within {
+  background-color: $darkest-btn-hover;
+}
+
+.icon {
+  background-color: $lightest-col;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+}
+
+.icon:hover,
+.icon:focus-within {
+  background-color: $lightest-btn-hover;
+}
+
+.btn,
+.search {
+  padding: 8px 10px;
+  border: 0px;
+}
+
+//header specific styling
+
+.header {
+  padding: 30px 0px;
+}
+
+.search-container {
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.search {
+  border-radius: 30px 0px 0px 30px;
+}
+
+::placeholder {
+  padding-left: 10px;
+}
+
+.search-btn {
+  background-color: $darkest-col;
+  color: white;
+  font-weight: bold;
+  width: 100px;
+  border-radius: 0 30px 30px 0;
+  margin-left: -10px;
+}
+
+form p {
+  margin-top: 10px;
+}
+
+// snapshot section
+.container {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.place {
+  padding-top: 20px;
+  display: flex;
+  gap: 10px;
+  color: #000000;
+  & p {
+    background-color: $lightest-col;
+    padding: 10px;
+    border-radius: 100px;
+  }
+}
+
+.snapshot-icon {
+  width: 200px;
+}
+
+.snapshot-temp {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.today-data {
+  display: grid;
+  margin: 80px;
+  padding: 30px;
+  border-radius: 30px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px;
+  background-color: rgba(101, 106, 198, 0.198);
+  & h4 {
+    font-size: 16px;
+  }
+}
+
+//daily & hourly forecast section
+
+.day-panel {
+  width: 100%;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: flex 0.7s ease-in;
+}
+
+.day-panel-container {
+  display: flex;
+  min-width: 90vw;
+  position: relative;
+  justify-content: space-between;
+  border-radius: 30px;
+}
+
+.hourly-weather {
+  display: flex;
+  min-width: 90vw;
+  font-weight: 500;
+  height: 100%;
+  gap: 15px;
+  background-color: rgba(75, 80, 174, 0.5);
+  padding: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: scroll;
+  & h3,
+  p {
+    font-size: 14px;
+  }
+}
+
+.weather-icon {
+  width: 30px;
+}
+
+.weather-summary {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.daily-icon {
+  width: 80px;
+}
+
+.hourly-icon {
+  width: 40px;
+}
+
+.day-panel.active .hourly-weather {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  bottom: 0px;
+  transform: translateY(100%);
+  min-width: 90vw;
+  left: 0;
+  background-color: rgba(75, 80, 174, 0.5);
+  color: aliceblue;
+  padding: 30px 30px;
+  justify-content: space-between;
+}
+
+.day-panel.active {
+  background-color: rgba(75, 80, 174, 0.5);
+  color: white;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.day {
+  display: none;
+}
+
+.hourly-weather > div {
+  width: 100%;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: baseline;
+  text-align: center;
+}
+
+.hourly:nth-of-type(2n) {
+  display: none;
+}

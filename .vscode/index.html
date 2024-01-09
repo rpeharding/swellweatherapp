@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="generic.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module">
+      import * as dateFns from "https://cdn.jsdelivr.net/npm/date-fns/+esm";
+    </script>
+    <script type="module" src="entry.js"></script>
+    <title>Weather</title>
+  </head>
+  <body id="root">
+    <header class="header flex">
+      <h2>swell weather</h2>
+      <div class="flex search-container">
+        <form>
+          <div>
+            <input
+              class="search"
+              type="search"
+              id="search-input"
+              name="place"
+              placeholder="Search for a location"
+              size="30"
+            />
+            <button id="search-btn" class="search-btn btn">Search</button>
+          </div>
+          <p id="search-error"></p>
+        </form>
+        <div id="location-btn" class="icon">
+          <img
+            src="images/icons/target-location.svg"
+            alt="use current location"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="snapshot-container">
+          <div class="place">
+            <h1 class="place-name"></h1>
+            <p>live</p>
+          </div>
+          <div id="today" class="today">
+            <div class="flex-column-container">
+              <div class="flex-column-container snapshot"></div>
+              <div class="snapshot-card-container">
+                <div class="snapshot-card snapshot-icon"></div>
+                <div class="snapshot-card snapshot-desc"></div>
+                <div class="snapshot-card snapshot-temp"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="today-data grid">
+          <div>
+            <h4>Sunrise</h4>
+            <p id="today-sunrise"></p>
+          </div>
+          <div>
+            <h4>Sunset</h4>
+            <p id="today-sunset"></p>
+          </div>
+          <div>
+            <h4>Chance of rain</h4>
+            <p id="chance-of-rain"></p>
+          </div>
+          <div id="advice"></div>
+        </div>
+      </div>
+
+      <div class="multi-day-container">
+        <div id="day-panel-container" class="day-panel-container"></div>
+      </div>
+
+      <div class="hourly-weather"></div>
+    </main>
+  </body>
+</html>
